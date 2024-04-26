@@ -1,0 +1,35 @@
+{
+  "dependencies": {
+    "proxy-chain": "2.4.0",
+    "yargs": "^17.7.2"
+  },
+  "name": "goprofilev4-proxytool",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "@types/yargs": "17.0.31",
+    "pkg": "^5.8.1"
+  },
+  "bin": "./dist/app.js",
+  "scripts": {
+    "format": "prettier --write .",
+    "start": "node dist/app.js",
+    "build": "tsc",
+    "dev": "nodemon src/app.ts"
+  },
+  "pkg": {
+    "scripts": [
+      "./dist/app.js"
+    ],
+    "targets": [
+      "node18-linux-arm64",
+      "node18-macos-arm64",
+      "node18-win-arm64"
+    ],
+    "outputPath": "./build"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
