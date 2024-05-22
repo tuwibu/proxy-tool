@@ -19,7 +19,6 @@ function typeSocket(source: unknown): asserts source is net.Socket & Extras {}
 
 export const countTargetBytes = (source: net.Socket, target: net.Socket): void => {
   typeSocket(source)
-
   source[targetBytesWritten] = source[targetBytesWritten] || 0
   source[targetBytesRead] = source[targetBytesRead] || 0
   source[targets] = source[targets] || new Set()

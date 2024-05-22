@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "colorette": "^2.0.20",
+    "dayjs": "^1.11.11",
     "patch-package": "^8.0.0",
     "yargs": "^17.7.2"
   },

@@ -1,4 +1,5 @@
-import * as ProxyChain from './pkg/proxy-chain'
+import logger from './logger';
+import * as ProxyChain from './proxy-chain'
 import * as yargs from 'yargs'
 
 const argv = yargs.options({
@@ -19,23 +20,22 @@ const argv = yargs.options({
   const server = new ProxyChain.Server({
     port: port,
     verbose: true,
-    prepareRequestFunction: () => {
-      return {
-        requestAuthentication: false,
-        upstreamProxyUrl: forward,
-      }
-    },
+    // prepareRequestFunction: () => {
+    //   return {
+    //     requestAuthentication: false,
+    //     upstreamProxyUrl: forward,
+    //   }
+    // },
   })
   server.listen(() => {
-    console.log(`Proxy server is listening on port ${port}`)
+    logger.success(`Proxy server is listening on port ${port}`)
   })
   server.on('requestFailed', async ({ request, error }) => {
-    console.error(`Request failed: ${request.url}`)
-    console.error(error)
+    logger.error(`Request failed: ${request.url}`)
   })
   // Emitted when HTTP connection is closed
   server.on('connectionClosed', ({ connectionId, stats }) => {
-    console.log(`Connection ${connectionId} closed`)
-    console.dir(stats)
+    logger.info(`Connection ${connectionId} closed`)
+    logger.debug('Connection stats:', stats)
   })
 })()
