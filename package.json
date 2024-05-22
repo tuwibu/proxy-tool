@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "patch-package": "^8.0.0",
     "proxy-chain": "2.4.0",
     "yargs": "^17.7.2"
   },
