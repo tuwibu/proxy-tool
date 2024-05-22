@@ -1,4 +1,4 @@
-import logger from './logger';
+import logger from './proxy-chain/logger';
 import * as ProxyChain from './proxy-chain'
 import * as yargs from 'yargs'
 
