@@ -278,8 +278,8 @@ export class Server extends EventEmitter {
         return await handleCustomResponse(request, response, handlerOpts as CustomResponseOpts)
       }
       if (handlerOpts.upstreamProxyUrlParsed && ['socks:'].includes(handlerOpts.upstreamProxyUrlParsed.protocol)) {
-        this.log(proxyChainId, 'Using socksForward');
-        return await forwardSocks(request, response, handlerOpts as ForwardOpts);
+        this.log(proxyChainId, 'Using socksForward')
+        return await forwardSocks(request, response, handlerOpts as ForwardOpts)
       }
       this.log(proxyChainId, 'Using forward')
       return await forward(request, response, handlerOpts as ForwardOpts)
@@ -315,8 +315,8 @@ export class Server extends EventEmitter {
 
       if (handlerOpts.upstreamProxyUrlParsed) {
         if (['socks:'].includes(handlerOpts.upstreamProxyUrlParsed.protocol)) {
-          this.log(socket.proxyChainId, `Using HandlerSocksTunnelChain => ${request.url}`);
-          return await tunnelSocks(data);
+          this.log(socket.proxyChainId, `Using HandlerSocksTunnelChain => ${request.url}`)
+          return await tunnelSocks(data)
         }
         this.log(socket.proxyChainId, `Using HandlerTunnelChain => ${request.url}`)
         return await chain(data)
@@ -471,8 +471,10 @@ export class Server extends EventEmitter {
 
       if (!['http:', 'socks:'].includes(handlerOpts.upstreamProxyUrlParsed.protocol)) {
         // eslint-disable-next-line max-len
-        throw new Error(`Invalid "upstreamProxyUrl" provided: URL must have the "http" protocol (was "${funcResult.upstreamProxyUrl}")`);
-    }
+        throw new Error(
+          `Invalid "upstreamProxyUrl" provided: URL must have the "http" protocol (was "${funcResult.upstreamProxyUrl}")`,
+        )
+      }
     }
 
     const { proxyChainId } = request.socket as Socket
