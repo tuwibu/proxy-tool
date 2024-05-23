@@ -2,9 +2,6 @@
   "dependencies": {
     "colorette": "^2.0.20",
     "dayjs": "^1.11.11",
-    "patch-package": "^8.0.0",
-    "socks": "^2.8.3",
-    "socks-proxy-agent": "^8.0.3",
     "yargs": "^17.7.2"
   },
   "name": "goprofilev4-proxytool",
